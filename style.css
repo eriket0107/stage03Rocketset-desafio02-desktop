@@ -107,7 +107,8 @@ main p {
 
   color: var(--fc-secondary);
 
-
+  animation: downtop;
+  animation-duration: 700ms;
 }
 
 .img-wrapper img {
@@ -116,7 +117,9 @@ main p {
   border-radius: 2.0rem;
   transition: 200ms;
 }
-
+.img-wrapper + .img-wrapper {
+  margin-top: 3.6rem;
+}
 .img-wrapper img:hover {
   transform: scale(1.05);
 }
@@ -139,22 +142,14 @@ main p {
 
   background-color: var(--bg-secondary-light);
   transition: 200ms;
-}
-
-.img-wrapper:hover h2 {
-  transform: rotate(5deg);
-  filter: opacity(0.5);
-}
-
-.img-wrapper h2 {
   animation: topdown;
   animation-duration: 700ms;
   animation-delay: 100ms;
 }
 
-.img-wrapper {
-  animation: downtop;
-  animation-duration: 700ms;
+.img-wrapper:hover h2 {
+  transform: rotate(5deg);
+  filter: opacity(0.5);
 }
 
 footer {
@@ -181,14 +176,14 @@ footer a {
     "header footer";
 
     max-width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     
   }
 
   header {
     grid-area: header;
     min-width: 37.7rem;
-    height: 100vh;
+
   }
 
   header img {
@@ -226,7 +221,8 @@ footer a {
   }
 
   .img-wrapper{
-    min-width: 20rem;
+    /* min-width: 20rem; */
+    height: auto;
   }
   .img-wrapper h2 {
     display: none;
@@ -264,6 +260,11 @@ footer a {
     display: block;
     grid-area: footer;
   }
+
+@keyframes identifier {
+  
+}
+
 }
 
 @media (min-width: 1280px) {
