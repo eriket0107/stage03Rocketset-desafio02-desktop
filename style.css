@@ -1,0 +1,257 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ff-heading: 'Staatliches', cursive;
+  --ff-texting: 'Palanquin', sans-serif;
+  --ff-footer: 'Open Sans', sans-serif;
+  --ff-header-p: 'Roboto', sans-serif;
+
+  --hue: 233;
+  --bg-primary: hsl(var(--hue), 100%, 97%);
+  --bg-secondary: hsl(calc(var(--hue) + 42), 18%, 79%);
+  --bg-secondary-dark: hsl(calc(var(--hue) - 15), 17%, 62%);
+  --bg-secondary-light: hsl(calc(var(--hue) + 79), 91%, 96%);
+
+  --fc-primary: hsl(0, 0%, 100%);
+  --fc-secondary: hsl(calc(var(--hue) - 1), 17%, 35%);
+  --fc-secondary-dark: hsl(calc(var(--hue) + 41), 84%, 12%);
+
+  font-size: 62.5%;
+  --fs-body: 1.6rem;
+  --fs-heading: 4rem;
+  --fs-texting: 2rem;
+  --fs-header-p: 2.4rem;
+}
+
+body {
+  background-color: var(--bg-primary);
+}
+
+.page {
+  /* display: grid; */
+  min-width: 38.4rem;
+  margin: 0 auto;
+}
+
+header {
+  padding: 3.2rem 0 2.9rem;
+  background-color: var(--bg-secondary-dark);
+
+  text-align: center;
+}
+
+header>p {
+  display: none;
+}
+
+header img {
+  margin-bottom: 3.2rem;
+  width: 13.7rem;
+
+  filter: drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.25));
+}
+
+header h1 {
+
+  font-size: var(--fs-heading);
+  font-family: var(--ff-heading);
+  color: var(--fc-primary);
+
+  line-height: 3.4rem;
+  letter-spacing: 0.05em;
+
+  width: 100%;
+  height: 4.9rem;
+  background-color: var(--bg-secondary);
+
+  margin-bottom: 3.2rem;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  display: grid;
+  padding: 1.4rem 3.2rem 6rem;
+}
+
+.wrapper>p {
+  padding-top: 2.8rem;
+  margin-bottom: 6.3rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  font-family: var(--ff-texting);
+  font-size: var(--fs-texting);
+  color: var(--fc-secondary-dark);
+
+
+  line-height: 1.5rem;
+
+  width: 100%;
+  height: 7.5rem;
+}
+
+.img-wrapper {
+  margin-top: 3.6rem;
+  position: relative;
+
+  font-family: var(--ff-heading);
+  font-size: 2rem;
+  line-height: 3.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  color: var(--fc-secondary);
+
+
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 2.0rem;
+  transition: 200ms;
+}
+
+.img-wrapper img:hover {
+  transform: scale(1.05);
+}
+
+.img-wrapper h2 {
+  display: flex;
+  align-items: center;
+
+  width: fit-content;
+  height: 3.5rem;
+
+  padding: 2.3rem;
+
+  border-radius: 4rem;
+
+  position: absolute;
+
+  right: 1.6rem;
+  top: 1.6rem;
+
+  background-color: var(--bg-secondary-light);
+  transition: 200ms;
+}
+
+.img-wrapper:hover h2 {
+  transform: rotate(5deg);
+  filter: opacity(0.5);
+}
+
+.img-wrapper h2 {
+  animation: topdown;
+  animation-duration: 700ms;
+  animation-delay: 100ms;
+}
+
+.img-wrapper {
+  animation: downtop;
+  animation-duration: 700ms;
+}
+
+@media (min-width:900px) {
+  .page {
+    display: flex;
+  }
+
+  header {
+    max-width: 37.7rem;
+  }
+
+  header img {
+    width: 21.4rem;
+  }
+  h2{
+    font-size: clamp(1rem, 2.4rem + 0.1vw, 2.4rem);
+    width: fit-content;
+    height: 3.0rem;
+  }
+  header > p {
+    display: flex;
+    margin-bottom: 0;
+
+    font-family: var(--ff-header-p);
+    font-size: clamp(1rem, 0.5rem + 5vw, 2.4rem);
+    line-height: 2rem;
+    color: var(--fc-primary);
+
+    margin-inline: 3.5rem;
+  }
+
+  .wrapper {
+    gap: 3.2em;
+    grid-template-areas: 
+    "A B E" 
+    "D B F" 
+    "D C F";
+  }
+
+  .wrapper > p {
+    display: none;
+  }
+
+  
+  .A {
+    grid-area: A;
+  }
+  
+  .B {
+    grid-area: B;
+  }
+  
+  .C {
+    grid-area: C;
+  }
+
+  .D {
+    grid-area: D;
+  }
+
+  .E {
+    grid-area: E;
+  }
+
+  .F {
+    grid-area: F;
+  } 
+
+
+}
+
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes downtop {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
